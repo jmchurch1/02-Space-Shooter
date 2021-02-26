@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="End" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 302.174
+margin_top = 441.947
+margin_right = 375.174
+margin_bottom = 455.947
+rect_scale = Vector2( 20, 20 )
+text = "You Died! :)"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

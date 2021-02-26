@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Enemy.png" type="Texture" id=2]
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 28
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="Enemy" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 10, -41, 11.8, -28, 12.5, -28, 14.4, -36, 50, -36, 50, -33, 51.5, -28, 56.8, -28, 60, -24.8, 60, -20, 74, -20, 74, -17.4, 76.5, -6, 73.1, -6, 44, -4.1, 44, 17.9, 12, 19.9, 12, 25.6, 4, 27.5, 4, 32.8, 0.800003, 36, -10, 36, -10, 33, -11.5, 28, -16.8, 28, -20, 24.8, -20, 20, -50, 20, -50, 17, -51.8, -4, -80.8, -4, -84, -7.2, -84, -17.8, -68, -19.8, -68, -25.6, -60, -27.5, -60, -32.8, -56.8, -36, -22.4, -36, -20.5, -28, -20, -41.2, -18, -42.2, -18, -44, 10, -44 )
+
+[node name="Move" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Shoot" type="Timer" parent="."]
+autostart = true
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="timeout" from="Move" to="." method="_on_Move_timeout"]
+[connection signal="timeout" from="Shoot" to="." method="_on_Shoot_timeout"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
